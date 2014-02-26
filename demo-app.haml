@@ -1,0 +1,21 @@
+%head
+  %title demo-app
+
+%body
+  {{> chats}}
+
+%template{ name: :chats }
+  %h1 Chats
+  {{>new_chat }}
+
+  {{#each collection }}
+  {{>chat}}
+  {{/each }}
+
+%template{ name: :new_chat }
+  %form#new_chat
+    %input{ name: :name, placeholder: "chatname" }
+    %button{ type: :submit } Add
+
+%template{ name: :chat }
+  %h3 {{ name }}

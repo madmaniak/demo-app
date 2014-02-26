@@ -1,13 +1,22 @@
 <head>
   <title>demo-app</title>
 </head>
-
 <body>
-  {{> hello}}
+  {{> chats}}
 </body>
-
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name='chats'>
+  <h1>Chats</h1>
+  {{>new_chat }}
+  {{#each collection }}
+  {{>chat}}
+  {{/each }}
+</template>
+<template name='new_chat'>
+  <form id='new_chat'>
+    <input name='name' placeholder='chatname'>
+    <button type='submit'>Add</button>
+  </form>
+</template>
+<template name='chat'>
+  <h3>{{ name }}</h3>
 </template>
