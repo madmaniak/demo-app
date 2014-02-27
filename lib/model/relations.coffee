@@ -63,7 +63,7 @@ class @ModelRelations extends ModelCRUD
           return related_model.where $.extend(selector, attributes), options
 
         @add: (object) =>
-          object[@constructor.relation_key()] = model._id
+          object[model.constructor.relation_key()] = model._id
           object.save()
 
         @new: (attributes) =>
