@@ -18,12 +18,10 @@
   {{/each }}
 </template>
 <template name='new_chat'>
-  <div class='fixed top'>
-    <form id='new_chat'>
-      <input class='form-control' name='name' placeholder='chatname'>
-      <button class='btn btn-default' type='submit'>Add</button>
-    </form>
-  </div>
+  <form id='new_chat'>
+    <input class='form-control' name='name' placeholder='chatname'>
+    <button class='btn btn-default' type='submit'>Add</button>
+  </form>
 </template>
 <template name='chat'>
   <div class='chat'>
@@ -32,10 +30,32 @@
         <div class='panel-title'>{{ name }}</div>
       </div>
       <div class='panel-body'>
-        <div class='btn btn-default remove'>
-          Remove
+        {{>messages }}
+      </div>
+      <div class='panel-footer'>
+        {{>new_message }}
+        <div class='btn btn-danger remove'>
+          Remove chat
         </div>
       </div>
     </div>
   </div>
+</template>
+<template name='new_message'>
+  <form id='new_message'>
+    <input class='form-control' name='message' placeholder='message'>
+    <button class='btn btn-default' type='submit'>Send</button>
+  </form>
+</template>
+<template name='messages'>
+  <ul class='list-group'>
+    {{#each collection }}
+    {{>message }}
+    {{/each}}
+  </ul>
+</template>
+<template name='message'>
+  <li class='list-group-item'>
+    {{ message }}
+  </li>
 </template>

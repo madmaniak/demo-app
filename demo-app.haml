@@ -16,10 +16,9 @@
   {{/each }}
 
 %template{ name: :new_chat }
-  .fixed.top
-    %form#new_chat
-      %input.form-control{ name: :name, placeholder: "chatname" }
-      %button.btn.btn-default{ type: :submit } Add
+  %form#new_chat
+    %input.form-control{ name: :name, placeholder: "chatname" }
+    %button.btn.btn-default{ type: :submit } Add
 
 %template{ name: :chat }
   .chat
@@ -27,5 +26,23 @@
       .panel-heading
         .panel-title {{ name }}
       .panel-body
-        .btn.btn-default.remove
-          Remove
+        {{>messages }}
+      .panel-footer
+        {{>new_message }}
+        .btn.btn-danger.remove
+          Remove chat
+
+%template{ name: :new_message }
+  %form#new_message
+    %input.form-control{ name: :message, placeholder: "message" }
+    %button.btn.btn-default{ type: :submit } Send
+
+%template{ name: :messages }
+  %ul.list-group
+    {{#each collection }}
+    {{>message }}
+    {{/each}}
+
+%template{ name: :message }
+  %li.list-group-item
+    {{ message }}
