@@ -1,1 +1,6 @@
 /* CSS declarations go here */
+.chat {
+  float: left;
+  display: block;
+  width: 20em;
+}

@@ -5,21 +5,37 @@
   {{> chats}}
 </body>
 <template name='chats'>
-  <h1>Chats</h1>
-  {{>new_chat }}
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      <div class='panel-title'>Chats</div>
+    </div>
+    <div class='panel-body'>
+      {{>new_chat }}
+    </div>
+  </div>
   {{#each collection }}
   {{>chat}}
   {{/each }}
 </template>
 <template name='new_chat'>
-  <form id='new_chat'>
-    <input name='name' placeholder='chatname'>
-    <button type='submit'>Add</button>
-  </form>
+  <div class='fixed top'>
+    <form id='new_chat'>
+      <input class='form-control' name='name' placeholder='chatname'>
+      <button class='btn btn-default' type='submit'>Add</button>
+    </form>
+  </div>
 </template>
 <template name='chat'>
-  <h3>{{ name }}</h3>
-  <div class='btn remove'>
-    Remove
+  <div class='chat'>
+    <div class='panel panel-success'>
+      <div class='panel-heading'>
+        <div class='panel-title'>{{ name }}</div>
+      </div>
+      <div class='panel-body'>
+        <div class='btn btn-default remove'>
+          Remove
+        </div>
+      </div>
+    </div>
   </div>
 </template>

@@ -5,19 +5,27 @@
   {{> chats}}
 
 %template{ name: :chats }
-  %h1 Chats
-  {{>new_chat }}
+  .panel.panel-default
+    .panel-heading
+      .panel-title Chats
+    .panel-body
+      {{>new_chat }}
 
   {{#each collection }}
   {{>chat}}
   {{/each }}
 
 %template{ name: :new_chat }
-  %form#new_chat
-    %input{ name: :name, placeholder: "chatname" }
-    %button{ type: :submit } Add
+  .fixed.top
+    %form#new_chat
+      %input.form-control{ name: :name, placeholder: "chatname" }
+      %button.btn.btn-default{ type: :submit } Add
 
 %template{ name: :chat }
-  %h3 {{ name }}
-  .btn.remove
-    Remove
+  .chat
+    .panel.panel-success
+      .panel-heading
+        .panel-title {{ name }}
+      .panel-body
+        .btn.btn-default.remove
+          Remove
